@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite + TS</title>
+	</head>
+	<body>
+		<header>
+			<div class="info">
+				<span class="info-label"> SCORE: </span>
+				<span id="score"> 0 </span>
+			</div>
+			<h1>2048</h1>
+			<div class="info">
+				<span class="info-label"> TURN: </span>
+				<span id="turn"> 0 </span>
+			</div>
+		</header>
+		<div id="board" tabindex="1">
+            <div id="menu">
+                <div class="button-row">
+                    <button id="3x3">3x3</button>
+                    <button id="4x4" class="selected">4x4</button>
+                    <button id="5x5">5x5</button>
+                </div>
+                <button id="menu-play">
+                    PLAY
+                </button>
+            </div>
+            <div id="game-over" class="hidden">
+                <span id="new-high-score" class="hidden">NEW HIGH SCORE!</span>
+                <span id="old-high-score" class="hidden">HIGH SCORE: </span>
+                <span id="high-score">0</span>
+                <button id="game-over-play-again">
+                    PLAY AGAIN
+                </button>
+                <button id="game-over-open-menu">
+                    MENU
+                </button>
+            </div>
+            <div id="pause-menu" class="hidden">
+                <button id="pause-menu-new-game">
+                    NEW GAME
+                </button>
+                <button id="pause-menu-continue">
+                    CONTINUE
+                </button>
+            </div>
+		</div>
+        <button id="pause" class="hidden">
+            PAUSE
+        </button>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>

@@ -1,0 +1,159 @@
+:root {
+	--tile-1: #f3cf30;
+	--tile-2: #f58c31;
+	--tile-3: #ec452b;
+	--tile-4: #e62851;
+	--tile-5: #eb1fc9;
+	--tile-6: #e515f8;
+	--tile-7: #9d0aff;
+	--tile-8: #3b19ff;
+	--tile-9: #142bff;
+	--tile-10: #1178ff;
+	--tile-11: #07d3e1;
+	--tile-12: #11f054;
+	--tile-13: #08f114;
+	--tile-14: #0afc16;
+}
+
+body {
+	min-width: 320px;
+	height: 100dvh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	background: linear-gradient(to bottom right, #1a1a1a, #000);
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem; /* Space below header */
+  padding: 0 1rem; /* Horizontal padding */
+}
+
+/* Info section styles */
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-label {
+  font-weight: bold;
+  color: rgba(255, 165, 0, 0.8); /* Orange color */
+  font-size: 1rem; /* Base font size */
+}
+
+#score, #turn {
+  font-weight: bold;
+  color: rgba(255, 105, 180, 0.8); /* Pink color */
+  font-size: 1.5rem; /* Larger font size for score and turn */
+}
+
+/* Game title styles */
+h1 {
+  background: linear-gradient(to right, #9b59b6, #ff6f61); /* Purple to pink gradient */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 3rem; /* Title font size */
+  margin: 0 0 1rem; /* Margin below title */
+}
+
+/* Board styles */
+#board {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border-radius: 1rem; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.5); /* Neon shadow */
+  position: relative; /* For absolute positioning of tiles */
+  width: 400px; /* Fixed width for the board */
+  height: 400px; /* Fixed height for the board */
+  padding: 10px
+}
+
+#menu, #pause-menu, #game-over {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border-radius: 1rem; /* Rounded corners */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#menu, #pause-menu {
+  background-color: #4d4d4d;
+  
+}
+  
+.hidden {
+  display: none !important;
+}
+
+/* Tile container */
+.tile {
+  position: absolute; /* Positioning for the tile */
+  border-radius: 0.75rem; /* Rounded corners */
+  backdrop-filter: blur(10px); /* Background blur effect */
+  opacity: 0.95; /* Slight transparency */
+  display: flex; /* Flexbox for centering content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  border-radius: 1rem; /* Rounded corners */
+  background-color: red;
+}
+
+/* Shadow effect for the tile */
+.tile-shadow {
+  position: absolute; /* Positioning for the shadow */
+  top: 0; /* Align to the top */
+  right: 0; /* Align to the right */
+  bottom: 0; /* Align to the bottom */
+  left: 0; /* Align to the left */
+  background: transparent; /* Transparent background */
+  border-radius: 0.75rem; /* Match the tile's rounded corners */
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5); /* Neon shadow effect */
+  animation: epic-shadow 1s infinite; /* Animation for the shadow */
+}
+
+/* Tile value text */
+.tile-value {
+  background: linear-gradient(to bottom right, #ffffff, #cccccc); /* Gradient text */
+  background-clip: text;
+  -webkit-background-clip: text; /* Clip background to text */
+  -webkit-text-fill-color: transparent; /* Make text transparent */
+  font-weight: bold; /* Bold text */
+  animation: pulse-slow 1.5s infinite; /* Slow pulsing animation */
+}
+
+/* Keyframe animations */
+@keyframes epic-shadow {
+  0% {
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5);
+  }
+  50% {
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.7), 0 0 60px rgba(255, 0, 255, 0.7);
+  }
+  100% {
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+  }
+}
