@@ -271,6 +271,8 @@ const handleKeyDown = (event: KeyboardEvent) => {
 };
 
 const handleTouchStart = (event: TouchEvent) => {
+	const target = event.target as HTMLElement | null;
+	if (target?.tagName === "BUTTON") return;
 	event.preventDefault();
 	const touch = event.touches[0];
 	const x = touch.clientX;
