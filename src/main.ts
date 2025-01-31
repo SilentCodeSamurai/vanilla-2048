@@ -282,7 +282,7 @@ const handleTouchStart = (event: TouchEvent) => {
 
 const handleTouchEnd = (event: TouchEvent) => {
 	if (!touchStart) return;
-	const touch = event.touches[0];
+	const touch = event.changedTouches[0];
 	const x = touch.clientX;
 	const y = touch.clientY;
 	const deltaX = x - touchStart.x;
