@@ -3,55 +3,64 @@
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite + TS</title>
+		<title>2048</title>
 	</head>
 	<body>
 		<header>
-			<div class="info">
-				<span class="info-label"> SCORE: </span>
-				<span id="score"> 0 </span>
-			</div>
-			<h1>2048</h1>
-			<div class="info">
-				<span class="info-label"> TURN: </span>
-				<span id="turn"> 0 </span>
-			</div>
+            <h1>2048</h1>
 		</header>
-		<div id="board" tabindex="1">
-            <div id="menu">
+        <div id="game-overlay" class="hidden">
+            <div class="info">
+                <span class="info-label"> SCORE: </span>
+                <span id="score"> 0 </span>
+            </div>
+            <div class="info">
+                <span class="info-label"> TURN: </span>
+                <span id="turn"> 0 </span>
+            </div>
+            <button id="pause">
+                PAUSE
+            </button>
+        </div>
+        <div id="board" class="hidden" tabindex="1">
+        </div>
+        <div id="menu-wrapper">
+            <div id="main-menu">
                 <div class="button-row">
-                    <button id="3x3">3x3</button>
-                    <button id="4x4" class="selected">4x4</button>
-                    <button id="5x5">5x5</button>
+                    <button id="size-3">3x3</button>
+                    <button id="size-4" class="selected">4x4</button>
+                    <button id="size-5">5x5</button>
                 </div>
-                <button id="menu-play">
+                <button id="play">
                     PLAY
                 </button>
             </div>
-            <div id="game-over" class="hidden">
-                <span id="new-high-score" class="hidden">NEW HIGH SCORE!</span>
-                <span id="old-high-score" class="hidden">HIGH SCORE: </span>
+            <div id="pause-menu" class="hidden">
+                <button id="resume">
+                    RESUME
+                </button>
+                <button id="new-game">
+                    NEW GAME
+                </button>
+            </div>
+            <div id="game-over-menu" class="hidden">
+                <span id="new-high-score-label" class="hidden">NEW HIGH SCORE!</span>
+                <span id="old-high-score-label" class="hidden">HIGH SCORE: </span>
                 <span id="high-score">0</span>
-                <button id="game-over-play-again">
+                <button id="play-again">
                     PLAY AGAIN
                 </button>
-                <button id="game-over-open-menu">
+                <button id="open-main-menu">
                     MENU
                 </button>
             </div>
-            <div id="pause-menu" class="hidden">
-                <button id="pause-menu-new-game">
-                    NEW GAME
-                </button>
-                <button id="pause-menu-continue">
-                    CONTINUE
-                </button>
-            </div>
-		</div>
-        <button id="pause" class="hidden">
-            PAUSE
-        </button>
+        </div>
+
+
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>

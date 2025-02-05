@@ -5,17 +5,25 @@ export type Coordinates = {
 	y: number;
 };
 
-export type Merger = {
-    toId: number;
-    fromId: number;
-};
-
-export type TileState = {
+export type Tile = {
 	id: number;
-	coordinates: Coordinates;
 	power: number;
 };
 
-export type FieldState = {
-	tiles: TileState[];
+export type Board = Array<Array<Tile | null>>;
+
+export type TileMoveEvent = {
+	id: number;
+	to: Coordinates;
+};
+
+export type TileMergerEvent = {
+	id: number;
+	withId: number;
+	newPower: number;
+};
+
+export type TileSpawnEvent = {
+	spawnedTile: Tile;
+	coordinates: Coordinates;
 };

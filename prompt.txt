@@ -1,0 +1,66 @@
+export type Direction = "UP" | "RIGHT" | "DOWN" | "LEFT";
+
+export type Coordinates = {
+	x: number;
+	y: number;
+};
+
+export type TileState = {
+	id: number;
+	coordinates: Coordinates;
+	power: number;
+};
+
+export type FieldState = {
+	tiles: TileState[];
+};
+
+export type TileMoveEvent = {
+	tileId: number;
+	toCoordinates: Coordinates;
+};
+
+export type TileMergerEvent = {
+	toId: number;
+	fromId: number;
+};
+
+export type TileSpawnEvent = {
+	spawnedTile: TileState;
+};
+
+
+import { Direction, TileMergerEvent, TileMoveEvent, TileSpawnEvent, TileState } from "./types";
+
+type MakeTurnReturn = {
+    tileMoves: TileMoveEvent[];
+    tileMergers: TileMergerEvent[];
+    tileSpawn: TileSpawnEvent;
+}
+
+class GameRound {
+	private gameSize: number;
+	private tiles: TileState[];
+
+	constructor({ gameSize }: { gameSize: number }) {
+		this.gameSize = gameSize;
+		this.tiles = [];
+	}
+
+    public calulateTurn (direction: Direction): MakeTurnReturn {
+        throw new Error("Not implemented");
+    }
+}
+
+Here is implementation of 2048 game engine.
+Implement class method calculateTurn
+All tiles on field should move to turn direction.
+Let's examine logic on single row(vertical, or horizontal):
+If there is no tiles between target tile and row end - generate Move event to the "wall".
+If tile(A) hits another tile(B): if powers are the same - generate Move for tile A to coords of tile B and Merger event toId - B.id, fromId - A.id; if powers are not the same - generate Move event for tile A next to tile B(A hits B and stops).
+If tile is already being merged, it can't be a part in of new merger.
+There may be multiple mergers and moves in the row.
+I guess we should iterate row from opposite of turn direction.
+
+U may add additional methods and props to class.
+Make function the most efficent it can be in typescript.
